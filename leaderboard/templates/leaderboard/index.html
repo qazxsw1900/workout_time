@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'leaderboard/indexStyle.css' %}">
+{% endblock %}
+{% block title %}Leaderboard{% endblock %}
+{% block content %}
+{% load index %}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Workout 1</th>
+        <th scope="col">Workout 2</th>
+        <th scope="col">Workout 3</th>
+        <th scope="col">Workout 4</th>
+        <th scope="col">Score</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for workout in workouts %}
+    {% if forloop.counter < 4 %}
+    <tr class="table-success">
+    {% else %}
+    <tr class="table-normal">
+    {% endif %}
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{workout.user}}</td>
+        <td>{{workout.workout1}} ({{top1|getRank:workout.workout1}})</td>
+        <td>{{workout.workout2}} ({{top2|getRank:workout.workout2}})</td>
+        <td>{{workout.workout3}} ({{top3|getRank:workout.workout3}})</td>
+        <td>{{workout.workout4}} ({{top4|getRank:workout.workout4}})</td>
+        <th>{{workout.points}}</th>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

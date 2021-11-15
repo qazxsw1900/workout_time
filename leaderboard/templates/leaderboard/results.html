@@ -1,0 +1,31 @@
+
+{% extends 'base.html' %}
+{% block title %}Leaderboard{% endblock %}
+{% block content %}
+{% load index %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>User</th>
+            <th>Workout 1</th>
+            <th>Workout 2</th>
+            <th>Workout 3</th>
+            <th>Workout 4</th>
+            <th>Workout Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for workout in workouts %}
+        <tr>
+            <td>{{workout.user}}</td>
+            <td>{{workout.workout1}} ({{top1|getRank:workout.workout1}})</td>
+            <td>{{workout.workout2}} ({{top2|getRank:workout.workout2}})</td>
+            <td>{{workout.workout3}} ({{top3|getRank:workout.workout3}})</td>
+            <td>{{workout.workout4}} ({{top4|getRank:workout.workout4}})</td>
+            <th>{{workout.points}}</th>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

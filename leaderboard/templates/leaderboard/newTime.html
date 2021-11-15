@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'leaderboard/addTimeStyle.css' %}">
+{% endblock %}
+{% block title %}New Time{% endblock %}
+{% block content %}
+<div class="itemFields">
+    <form method="Post" class="row g-3 was-validated"> {% csrf_token %}
+        <div class="container">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Full Name</span>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                       aria-describedby="basic-addon1" name="name" required>
+            </div>
+        </div>
+        <div class="container">
+            <div class="input-group">
+                <span class="input-group-text">Workout 1</span>
+                <input name="time0m" type="number" aria-label="First name" min="0" max="99" class="form-control"
+                       placeholder="mm"
+                       required>
+                <span class="input-group-text">:</span>
+                <input name="time0s" type="number" aria-label="Last name" min="0" max="59" class="form-control"
+                       placeholder="ss"
+                       required>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="input-group">
+                <span class="input-group-text">Workout 2</span>
+                <input name="time1m" type="number" aria-label="First name" min="0" max="99" class="form-control"
+                       placeholder="mm"
+                       required>
+                <span class="input-group-text">:</span>
+                <input name="time1s" type="number" aria-label="Last name" min="0" max="59" class="form-control"
+                       placeholder="ss"
+                       required>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="input-group">
+                <span class="input-group-text">Workout 3</span>
+                <input name="time2m" type="number" aria-label="First name" min="0" max="99" class="form-control"
+                       placeholder="mm"
+                       required>
+                <span class="input-group-text">:</span>
+                <input name="time2s" type="number" aria-label="Last name" min="0" max="59" class="form-control"
+                       placeholder="ss"
+                       required>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="input-group">
+                <span class="input-group-text">Workout 4</span>
+                <input name="time3m" type="number" aria-label="First name" min="0" max="99" class="form-control"
+                       placeholder="mm"
+                       required>
+                <span class="input-group-text">:</span>
+                <input name="time3s" type="number" aria-label="Last name" min="0" max="59" class="form-control"
+                       placeholder="ss"
+                       required>
+            </div>
+        </div>
+        <div class="container">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% if messages %}
+{% for message in messages %}
+<h2>{{ message }}</h2>
+{% endfor%}
+{% endif %}
+{% for spe in sped %}
+<h2>{{spe}}</h2>
+{% endfor %}
+{% endblock %}

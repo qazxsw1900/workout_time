@@ -1,0 +1,19 @@
+.logo{
+padding-left:1%;
+font-family: Helvetica, Arial, sans-serif;
+}
+
+.header
+{
+height: 10%;
+}
+
+.navbar
+{
+box-shadow: 0 5px 10px #efefef;
+}
+
+.travel-button
+{
+margin-right:10%;
+}

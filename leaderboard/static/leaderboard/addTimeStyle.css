@@ -1,0 +1,13 @@
+.container{
+width:50%;
+min-width: 270px;
+margin-left:5%;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  }
+.itemFields{
+margin-top:max(10px, 1%);
+}
